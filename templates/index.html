@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema do Berçário (SPA)</title>
+    <!-- Link para o nosso novo arquivo de estilo -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- SEÇÃO DO MENU PRINCIPAL (Começa visível) -->
+        <div id="menu-principal">
+            <h1>Sistema de Gerenciamento do Berçário</h1>
+            <nav class="menu">
+                <button id="btn-show-medico">Cadastrar Novo Médico</button>
+                <button id="btn-show-responsavel">Cadastrar Novo Responsável</button>
+                <button id="btn-show-bebe">Cadastrar Novo Bebê</button>
+            </nav>
+        </div>
+
+        <!-- SEÇÃO DO FORMULÁRIO DE MÉDICOS (Começa escondido) -->
+        <div id="form-medico-container" class="form-wrapper" style="display: none;">
+            <h1>Cadastro de Médicos</h1>
+            <form action="/adicionar_medico" method="post">
+                <label for="nome_medico">Nome Completo:</label>
+                <input type="text" id="nome_medico" name="nome" required>
+                <label for="especialidade_medico">Especialidade:</label>
+                <input type="text" id="especialidade_medico" name="especialidade">
+                <label for="crm_medico">CRM:</label>
+                <input type="text" id="crm_medico" name="crm" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+            <button class="back-link btn-voltar">Voltar ao Menu</button>
+        </div>
+
+        <!-- SEÇÃO DO FORMULÁRIO DE RESPONSÁVEIS (Começa escondido) -->
+        <div id="form-responsavel-container" class="form-wrapper" style="display: none;">
+            <h1>Cadastro de Responsáveis</h1>
+            <form action="/adicionar_responsavel" method="post">
+                <label for="nome_resp">Nome Completo:</label>
+                <input type="text" id="nome_resp" name="nome" required>
+                <label for="parentesco_resp">Parentesco:</label>
+                <input type="text" id="parentesco_resp" name="parentesco" required>
+                <label for="cpf_resp">CPF:</label>
+                <input type="text" id="cpf_resp" name="cpf">
+                <label for="telefone_resp">Telefone:</label>
+                <input type="text" id="telefone_resp" name="telefone">
+                <button type="submit">Cadastrar</button>
+            </form>
+            <button class="back-link btn-voltar">Voltar ao Menu</button>
+        </div>
+
+        <!-- SEÇÃO DO FORMULÁRIO DE BEBÊS (Começa escondido) -->
+        <div id="form-bebe-container" class="form-wrapper" style="display: none;">
+            <h1>Cadastro de Bebês</h1>
+            <form action="/adicionar_bebe" method="post">
+                <label for="nome_bebe">Nome Completo do Bebê:</label>
+                <input type="text" id="nome_bebe" name="nome" required>
+                <label for="data_nascimento_bebe">Data de Nascimento:</label>
+                <input type="date" id="data_nascimento_bebe" name="data_nascimento" required>
+                <label for="sexo_bebe">Sexo:</label>
+                <select id="sexo_bebe" name="sexo" required>
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                </select>
+                <label for="id_medico_select">Médico Responsável:</label>
+                <select id="id_medico_select" name="id_medico" required>
+                    <!-- Opções serão preenchidas pelo JavaScript -->
+                </select>
+                <label for="id_responsavel_select">Responsável Principal:</label>
+                <select id="id_responsavel_select" name="id_responsavel" required>
+                    <!-- Opções serão preenchidas pelo JavaScript -->
+                </select>
+                <button type="submit">Cadastrar</button>
+            </form>
+            <button class="back-link btn-voltar">Voltar ao Menu</button>
+        </div>
+    </div>
+    <!-- Link para o nosso novo arquivo JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
