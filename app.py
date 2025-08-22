@@ -1,16 +1,20 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import mysql.connector
 from mysql.connector import Error
+import os # Modulo OS
+from dotenv import load_dotenv
+
+load_dotenv()  # Carrega as variáveis de ambiente do arquivo .env
 
 app = Flask(__name__)
 
 # Configuração do Banco de Dados 
 db_config = {
-    'host': 'yamanote.proxy.rlwy.net',
-    'user': 'root',
-    'password': 'fgjGNsVYaPxaIxnUWkIMJOEZlNlHRZSc',
-    'database': 'railway',
-    'port': '53499',
+    'host': os.getenv('DB_HOST'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD'),
+    'database': os.getenv('DB_NAME'),
+    'port': os.getenv('DB_PORT'),
     'ssl_disabled': False,
     'ssl_verify_cert': False
 }
