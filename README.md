@@ -1,5 +1,13 @@
 # Sistema de Gerenciamento de Berçário
 
+### Acesso à Aplicação
+
+**Acesse a aplicação em funcionamento no link abaixo:**
+
+[**bercario-app-production.up.railway.app**](https://bercarioapp-production.up.railway.app/)
+
+---
+
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
@@ -41,7 +49,7 @@ Siga os passos abaixo para rodar a aplicação em seu ambiente local.
 
 ### **Pré-requisitos**
 
--   Python 3
+-   Python 3.x
 -   Pip (gerenciador de pacotes do Python)
 
 ### **Instalação**
@@ -64,10 +72,11 @@ Siga os passos abaixo para rodar a aplicação em seu ambiente local.
     ```
 
 3.  **Instale as dependências:**
-    (Primeiro, crie um arquivo `requirements.txt` com o conteúdo abaixo)
+    (Certifique-se de que seu arquivo `requirements.txt` contém o seguinte)
     ```txt
     Flask
     mysql-connector-python
+    gunicorn
     ```
     (Depois, execute o comando de instalação)
     ```bash
